@@ -1,0 +1,53 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="psusymp.traversingplone">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <browser:page
+        name="test-util"
+        for="*"
+        permission="zope2.View"
+        class=".views.TestUtil"
+        allowed_interface=".interfaces.ITestUtil" />
+
+    <browser:page
+        name="custom-traversal"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".traversal.CustomTraverseContext"
+        permission="zope2.View"
+        allowed_interface="OFS.interfaces.IItem" />
+    <browser:page
+        name="django-traversal"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".traversal.CustomDjangoTraverseContext"
+        permission="zope2.View"
+        allowed_interface="OFS.interfaces.IItem" />
+
+    <browser:page
+        name="view"
+        for=".traversal.CustomTraverseContext"
+        permission="zope2.View"
+        template="templates/custom-traversal.pt" />
+    <browser:page
+        name="view"
+        for=".content.CustomContent"
+        permission="zope2.View"
+        template="templates/custom-content.pt" />
+    <browser:page
+        name="view"
+        for=".content.DjangoContent"
+        permission="zope2.View"
+        template="templates/django-content.pt" />
+
+    <browser:page
+        name="test-view"
+        for="*"
+        permission="zope2.View"
+        class=".views.TestView"
+        template="templates/test.pt" />
+
+</configure>
