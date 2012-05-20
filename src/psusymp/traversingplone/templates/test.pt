@@ -21,9 +21,6 @@ return util.foobar()</pre>
         <dd tal:content="view/foobar_util"></dd>
         <dt>Custom Traversal</dt>
         <dd>
-          <a tal:attributes="href string:${context/absolute_url}/@@custom-traversal">
-            Visit traversal view
-          </a> | 
           <a tal:attributes="href string:${context/absolute_url}/@@custom-traversal/foobar">
             Visit example traversal content
           </a>
@@ -32,6 +29,30 @@ return util.foobar()</pre>
         <dd>
           <a tal:attributes="href string:${context/absolute_url}/@@django-traversal/1">
             Visit example django traversal content
+          </a>
+        </dd>
+        <dt>++ Traversal</dt>
+        <dd>
+          <a tal:attributes="href string:${context/absolute_url}/++customtraversal++foobar">
+            Visit example ++ traversal
+          </a>
+        </dd>
+        <dt>++ Django Traversal</dt>
+        <dd>
+          <a tal:attributes="href string:${context/absolute_url}/++djangotraversal++1">
+            Visit example ++ django traversal
+          </a>
+        </dd>
+        <dt>Custom Route</dt>
+        <dd>
+          <a tal:attributes="href string:${context/absolute_url}/customcontent/foobar">
+            Visit example route
+          </a>
+        </dd>
+        <dt>Django Route</dt>
+        <dd>
+          <a tal:attributes="href string:${context/absolute_url}/djangocontent/1">
+            Visit example django route
           </a>
         </dd>
       </dl>

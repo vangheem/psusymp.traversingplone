@@ -14,24 +14,31 @@
         class=".views.TestUtil"
         allowed_interface=".interfaces.ITestUtil" />
 
+    <!-- for @@custom-traversal view -->
     <browser:page
         name="custom-traversal"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".traversal.CustomTraverseContext"
         permission="zope2.View"
         allowed_interface="OFS.interfaces.IItem" />
+    <!-- for @@django-traversal view -->
     <browser:page
         name="django-traversal"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".traversal.CustomDjangoTraverseContext"
         permission="zope2.View"
         allowed_interface="OFS.interfaces.IItem" />
+    <!-- for ++customtraversal++ view -->
+    <adapter
+        factory=".traversal.PlusPlusTraversal"
+        name="customtraversal"
+        />
+    <!-- for ++djangotraversal++ view -->
+    <adapter
+        factory=".traversal.PlusPlusDjangoTraversal"
+        name="djangotraversal"
+        />
 
-    <browser:page
-        name="view"
-        for=".traversal.CustomTraverseContext"
-        permission="zope2.View"
-        template="templates/custom-traversal.pt" />
     <browser:page
         name="view"
         for=".content.CustomContent"
